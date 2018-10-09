@@ -1,0 +1,8 @@
+Maps:
+A map is an object that stores associations between keys and values, or key/value pairs.
+Given a key, we can find its value. Both keys and values are objects.
+The key must be unique but the values may be duplicated. 
+Some maps can accept null keys and null values, others cannot.
+
+Maps do not implement the Iterable interface. This means that we cannot cycle through a map using a for-each style for loop.
+Also, we cannot obtain an iterator to a map. However we can obtain a collection-view of a map, which allows the use of iterator or the for loop

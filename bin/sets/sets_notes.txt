@@ -1,0 +1,55 @@
+HASHSET:-
+
+HashSet extends the AbstractSet class and implements the Set interface. It creates a collection that uses a hash table for storage. 
+It is a generic class that has the declaration: class HashSet<E> where E is the object type that will be held.
+
+Hash table stores information using a procedure known as Hashing. In Hashing the informational content of a key is used to determine an unique value, known as its hash code.
+This hash code is used as an index at which data associated with the key is stored.
+The transformation of the key into hash code is done automatically- we never see the hash code itself.
+Also, our code cannot index our hash table itself.
+
+The advantage of hashing is that it allows the execution time of add(), contains(), remove() and size() to be constant even for larger sets.
+
+The following constructors are defined:
+	HashSet()								Default hash set
+	HashSet(Collection<? extends E> c)		Creates and initializes the hash set by using the elements of c
+	HashSet<int capacity>					Initializes the capacity of the hash set to capacity (default capacity is 16)
+	HashSet<int capacity, float fillRatio>	Initializes both capacity and fillRatio (also call load capacity)
+	
+	The fill ratio must be between 0.0 and 1.0, and it determines how full the hash set can be before it is resized upwards. 
+	Specifically when the number of elements is greater than the capacity of the hash set multiplied by its fill ratio, the hash set is expanded. 
+	For constructors that do not use a fill ratio, 0.75 is used.
+	
+HashSet does not guarantee the order of its elements, because the process of hashing doesn't usually lend itself to the creation of sorted sets.
+For sorted storage we must use the Tree Set.
+
+============================================================================================================================================================================
+
+LinkedHashSet:-
+
+This class extends the HashSet and add no members of its own. It is a generic class that has the declaration: class LinkedHashSet<E>, where E specifies the objects that it holds.
+Its constructors parallel those in HashSet
+
+LinkedHashSet maintains a linked list of the entries in the set, in order in which they were inserted. This allows insertion order iteration over the set.
+That is, when cycling through a LinkedHashSet using an iterator, the elements will be returned in the order in which they were inserted.
+This is also the order in which the they are contained in the string returned by toString() when called on a LinkedHashSet object.
+
+
+==========================================================================================================================================================================
+
+TreeSet:-
+
+The TreeSet extends the AbstractSet and implements the NavigableSet interface. It creates a collection that uses a tree structure for storage.
+Objects are stored in sorted, ascending order. 
+Access and retrieval times are quite fast, which makes TreeSet an excellent choice when storing large amounts of sorted info that must be found quickly.
+
+
+It is a generic class with the declaration: class TreeSet<E>
+
+It has the following constructors:
+	TreeSet()								Empty tree sorted in ascending order according to the natural order of its elements.
+	TreeSet<Collection<? extends E> c>		Tree set that contains elements of c
+	TreeSet(Comparator<? super E> comp)		Empty tree that will be sorted according to the comparator specified by comp
+	TreeSet(SortedSet<E> ss)				Tree set that contains elements of ss
+	
+	=====================================================================================================================================================================
