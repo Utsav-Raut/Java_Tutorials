@@ -26,3 +26,9 @@ public class ArrayListToArrayDemo {
 	}
 
 }
+
+
+//Notes:
+//	Collections can only store references to, not values of, primitive types.
+//	However autoboxing makes it possible to pass values of type "int" to add() without having to manually wrap them within an Integer. 
+//	Autoboxing causes them to be automatically wrapped.

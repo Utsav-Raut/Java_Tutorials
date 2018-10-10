@@ -35,3 +35,15 @@ public class LinkedListDemo {
 	}
 
 }
+
+
+//Notes:
+//	To add elements to the start of a list we can use addFirst() or offerFirst()
+// 	To add elements to the end of a list we can use addLast() or offerLast()
+//	To obtain the first element we may use getFirst() or peekFirst()
+//	To obtain the last element we may use getLast() or peekLast()
+//	To remove the first element - getFirst() or pollFirst()
+//	To remove the last element - getLast() or pollLast()
+
+//	Since LinkedList implements the List interface, calls to add(E) appends items to the end of the list, as do calls to addLast().
+//	To insert items at a specific location, we use the add(int, E) form of add()

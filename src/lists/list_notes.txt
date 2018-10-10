@@ -1,0 +1,48 @@
+ArrayList:-
+
+The ArrayList class extends AbstractList and implements the List interface. It is a generic class that has the declaration: class ArrayList<E>, where E specifies the type of objects that the list will hold.
+In Java standard arrays have a fixed length. ArrayList supports dynamic arrays that can grow as needed. 
+In essence, ArrayList is a variable-length array of object references, i.e an ArrayList can dynamically increase or decrease in size.
+Array lists are created with an initial size. When this size is exceeded, the collection is automatically enlarged. When objects are removed, the array can be shrunk.
+
+Constructors of ArrayList:
+	ArrayList()									An empty arraylist is built
+	ArrayList(Collection<? extends E> c)		ArrayList created and initialized with elements of collection c
+	ArrayList(int capacity)						ArrayList created with the specified initial capacity.
+	
+Capacity refers to the size of the underlying array that is used to store the elements.The capacity grows automatically as elements are added to an array list.
+
+Although the capacity of an ArrayList increases automatically as objects are stored in it, the size can be manually increased as well by calling the method:
+	void ensureCapacity(int cap), where cap is the new capacity
+	
+Conversely we can reduce the size of the array that underlies an ArrayList object so that it is precisely as large as the number of items that it is currently holding, by calling:
+	void trimToSize()
+	
+============================================================================================================================================================
+
+Obtaining an array from an arraylist:
+
+Several reason might exist why we would want to convert a collection into an array-
+a) To obtain faster processing times for certain operations
+b) To pass an array to a method that is not overloaded to accept a collection
+c) To integrate collection-based code with legacy code that does not understand collections.
+
+
+There are two versions of toArray()
+	Object[] toArray()
+	<T> T[] toArray(T array[])
+	
+The first returns an array of object. The second returns an array of element that has the same type as T.
+Normally the second form is more convenient because it returns the proper type of array.
+
+============================================================================================================================================================  
+
+LinkedList:
+
+This class extends AbstractSequentialList and implements List, Deque, and Queue interfaces.
+It provides a linked-list data structure. It is a generic class that has this declaration: class LinkedList<E>.
+It has two constructors:
+	LinkedList()								builds an empty linked list
+	LinkedList(Collection<? extends E> c)		builds a linked list that is initialized with the elements of the collection c.
+	
+============================================================================================================================================================
