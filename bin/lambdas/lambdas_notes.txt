@@ -1,0 +1,75 @@
+Key to understanding Java's implementation of lambda expressions are two constructs: the lambda expression itself, and the functional interface.
+
+A lambda expression is, essentially, an anonymous method. However this method is not executed on it's own. Instead, it is used to implement a method defined by a functional interface.
+Thus, a lambda expression results in a form of anonymous class. Lambda expressions are also commonly known as closures.
+
+A functional interface is an interface that contains one and only one abstract method. Normally, this method specifies the intended purpose of the interface.
+Thus, a functional interface typically represents a single action.
+For example, the standard interface "Runnable" is a functional interface because it defines only one method: run(). Therefore, run() defines the action of Runnable.
+
+A functional interface defines the target type of a lambda expression. A lambda expression can be used only in a context in which it's target type is specified.
+
+Functional interfaces are also known as SAM type, where SAM stands for Single Abstract Method.
+
+=====================================================================================================================================================================
+
+The lambda expression introduces a new syntax element and operator into the Java language.
+The new operator, sometimes referred to as the lambda operator or the arrow operator, is ->. 
+It divides the lambda expression into two parts. The left side specifies any parameters required by the lambda expression. (If no params are needed, then an empty param list is used)
+On the right side is the lambda body which specifies the actions of the lambda expression.
+The -> can verbalized as "becomes" or "goes to".
+
+Java defines two types of lambda bodies. One consists of a single expression and the other type consists of a block of code.
+
+Examples:
+1)
+	double myMeth(){
+		return 123.45;
+	}
+	
+	can be written as:
+	
+	() -> 123.45;
+	
+2)
+	(n) -> n%2 == 0;		This lambda expression returns true if the value of the parameter n is even.
+	
+	
+===================================================================================================================================================================
+
+FUNCTIONAL INTERFACES:
+------------------------
+
+A functional interface is an interface that specifies only one abstract method.
+Prior to JDK8, all interface methods were implicitly abstract. But now it is possible to provide default behavior for a method declared in an interface. This is called a default method.
+Today an interface method is abstract only if it does not specify a default implementation.
+
+Example of funtional interface:
+	interface MyNumber{
+		double getValue();
+	}
+	
+	The method getValue() is implicitly abstract and it is the only method defined by MyNumber, hence MyNumber is a functional interface and its function is defined by getValue()
+	
+A lambda expression is not executed on its own,instead it forms the implementation of the abstract method  defined the functional interface that specifies its target type.
+As a result, a lambda expression can be specified only in a context in which a target type is defined. 
+One of these contexts is created when a lambda expression is assigned to a functional interface reference.
+Other target type contexts include variable initialization, return statements, and method arguments, to name a few.
+
+example:
+	MyNumber myNum;				// Reference to the functional interface MyNumber is declared
+	myNum = () -> 123.45;		// Use a lambda expression in an assignment context
+
+
+When a lambda expression occurs in a target type context, an instance of a class is automatically created that implements the functional interface, 
+with the lambda expression defining the behavior of the abstract method declared by the functional interface.
+When that method is called through the target, the lambda expression is executed. Thus a lambda expression gives us a way to transform a code segment into an object.
+
+	System.out.println(myNum.getValue());		// prints 123.45
+	
+In order for a lambda expression to be used in a target type context, the type of the abstract method and the type of the lambda expression must be compatible.
+
+============================================================================================================================================================
+
+
+

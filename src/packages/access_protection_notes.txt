@@ -1,0 +1,32 @@
+Classes and packages are both means of encapsulating and containing the name space and scope of variables and methods.
+Packages act as containers for classes or other subordinate packages.
+Class act as containers for data and code. 
+The class is java's smallest unit of abstraction.
+
+There are four categories of visibility of class members:
+	a) Subclasses in the same package
+	b) Non-subclasses in the same package
+	c) Subclasses in different packages
+	d) Classes that are neither in the same package nor subclasses
+	The three access specifiers, private, public and protected provide a variety of ways to produce many levels of access required by these categories.
+	
+==============================================================================================================================================================
+	
+											Private	| No modifier | Protected | Public |
+										    -------	  -----------   ---------   ------
+	| Same class						|	Yes			Yes			Yes			Yes
+		
+	| Same package subclass				|	No			Yes			Yes			Yes
+	
+	| Same package non-subclass			|	No			Yes			Yes			Yes
+	
+	| Different package subclass		|	No			No			Yes			Yes
+	
+	| Different package non-subclass	|	No			No			No			No
+	
+==============================================================================================================================================================
+
+	Anything declared public can be access from anywhere.
+	Anything declared private cannot be seen outside the class.
+	When a member does not have an explicit access specification, it is visible to subclasses as well as to other classes in the same package. This is the default access.
+	Anything declared protected can be seen outside the current package but only to classes that subclass your class directly.

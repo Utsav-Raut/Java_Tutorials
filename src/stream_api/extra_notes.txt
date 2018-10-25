@@ -1,0 +1,43 @@
+Schildt page = 584 (java 8 book)
+
+JDK 8 adds classes called Optional, OptionalDouble, OptionalInt and OptionalLong that offers a way to handle situations in which a value may or may not be present.
+In the past, we would normally use the value "null" to indicate that no value is present.
+However this can lead to null pointer exceptions if an attempt is made to dereference a null reference. (Note about dereference a null reference is below)
+As a result, frequent checks for null value were necessary to avoid generating an exception. 
+These classes provide a better way to handle such situations.
+
+The first and more general of these classes in "Optional". 
+	class Optional<T>
+Here T specifies the type of value stored. 
+It is imp to understand that Optional instance can either contain a value of type T or be empty. Thus, Optional object does not necessarily contain a value.
+Optional does not define any constructors but it does define several methods that lets us work with Optional objects.
+
+empty
+equals
+filter
+flatMap
+get
+hashCode
+ifPresent
+isPresent
+map
+of
+ofNullable
+orElse
+orElseGet
+orElseThrow
+toString
+
+
+
+====================================================================================================================================================================
+
+Dereference a null reference:
+
+String s = null;
+s = s.toUpperCase();
+
+This is a simple example of what a null pointer dereference is. 
+s is a null reference (its value is null), when we derefrence is (get the value of it) we have null, when we call toUpperCase() on null, 
+something goes horribly wrong because null doesn't have any methods, at all! Java throws a NullPointerException to be specific.
+

@@ -1,0 +1,43 @@
+Using the keyword "interface" we can fully abstract a class's interface from its implementation.
+I.e using interface we can specify what a class must do and not how it does it.
+
+Interfaces and syntactically similar to classes but they lack the instance variables and their methods are declared without any body.
+
+Any number of classes can implement an interface.
+A class can implement any number of interfaces. This is in contrast to how classes can extend only one class.
+
+To implement an interface and class must create the complete set of methods defined by the interface. However each class is free to determine the details of its own implementation.
+Each class that includes an interface must implement all of its methods.
+
+Through interfaces, Java provides the "one interface, multiple methods" aspect of polymorphism.
+
+Interfaces are designed to support dynamic method resolution at run-time.
+
+Variables can be declared inside of interface declarations. They are implicitly "final" and "static" meaning they cannot be changed by the implementing. They must also be initialized.
+All variables and methods are implicitly public.
+
+If a class implements more than one interface, the interfaces are separated with a comma.
+If a class implements two interfaces that declare the same method, then the same method will be used by clients of either interface.
+The methods that implement an interface must be declared public and also, the type signature of the implementing method must match exactly the type signature specified in the interface definition.
+
+
+Classes that implement interfaces may define additional members of their own.
+==============================================================================================================================================================
+
+We can declare variables as object references that use an interface rather than a class type.
+Any instance of any class that implements the declared interface can be referred to by such a variable.
+
+WebDriver driver = new ChromeDriver();
+
+=============================================================================================================================================================
+
+One interface can inherit another by use of the keyword extends. The syntax is same as for inheriting classes.
+
+=============================================================================================================================================================
+
+Variables in interfaces are declared as:
+	interface SharedConstants{
+		int NO = 0;
+		int YES = 1;
+		int MAYBE = 2;
+	}

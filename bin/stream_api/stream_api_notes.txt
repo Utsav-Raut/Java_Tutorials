@@ -1,0 +1,20 @@
+HOW TO OBTAIN A STREAM?
+
+The most common way to obtain a stream is when a stream is obtained for a collection.
+From JDK 8, the Collection interface has been expanded to include two methods that obtain a stream from a collection.
+The first is "stream()", and its default implementation returns a sequential stream.
+	default Stream<E> stream()
+	
+The second method is "parallelStream()" and its default implementation returns a parallel stream, if possible. (If a parallel stream cannot be obtained, a sequential one will be returned instead.)
+Parallel streams support parallel execution of stream operations.
+	default Stream<E> parallelStream()
+	
+Because Collection is implemented by every collection, these methods can be used to obtain a stream from any collection class, such as ArrayList or HashSet.
+
+A stream can also be obtained from an array by use of the static "stream()" method, which was added to the Arrays class by JDK 8. On of its forms is:
+	static <T> Stream<T> stream(T[] array)	
+This method returns a sequential stream to the elements in array. For example, given an array called addresses of type Address, the following obtains a stream to it:
+	Stream<Address> addrStream = Arrays.stream(addresses);
+	
+Several overloads of the stream() method are also defined, such as those that handle arrays of the primitive types. They return stream of type IntStream, DoubleStream, LongStream.
+

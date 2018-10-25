@@ -1,0 +1,65 @@
+Prior to JDK8, an interface could not define any implementation whatsoever. Thus for all previous versions of Java, the methods specified by an interface were abstract, containing no body.
+The release of JDK8 has changed this by adding a new capability to interface called the default method.
+A default method lets us define a default implementation for an interface method. Thus, by use of a default method, it is now possible for an interface method to provide a body, rather than being abstract.
+Default method is also known as extension method.
+
+A primary motivation for the default method was to provide a means by which interfaces could be expanded without breaking the existing code.
+In the past, if a new method were added to a very popular, widely used interface(e.g WebDriver), then addition of a new method would break all existing code because no implementation would be found for that new method.
+The default method solves this problem by providing an implementation that will be used if no other implementation is explicitly provided. Thus, the addition of default method will not cause preexisting code to break.
+
+Another motivation for default method was the desire to specify methods in an interface that are, essentially, optional, depending on how the interface is used.
+For example, an interface might define a group of methods that act on a sequence of elements.
+One of these methods might be called remove(), and its purpose is to remove an element from the group/sequence.
+However if the interface is intended to support both modifiable and non-modifiable sequences, then remove() is essentially optional because it won't be used by the non-modifiable sequences.
+In the past, a class that implemented a non-modifiable sequence would have had to define an empty implementation of remove(), even though it was not needed.
+Today, a default implementation of remove() can be specified in the interface that does nothing(or throws an exception).
+Providing this default prevents a class used for non-modifiable sequences from having to define its own, placeholder version of remove().
+
+IMPORTANT:
+The addition of default methods does not change a key aspect of interface: its inability to maintain state information. An interface still cannot have instance variables, for example.
+Thus, the defining difference a class and an interface is that a class can maintain state information, but an interface cannot.
+Also, it is still not possible to create an instance of an interface by itself. It must be implemented by a class.
+Therefore even though an interface can define default methods, the interface must still be implemented by a class if an instance is to be created.
+
+=======================================================================================================================================================================
+
+An interface default method is similar to the way a method is defined by a class. The primary difference is that the declaration is preceded by the "default" keyword.
+
+It is also possible and common for an implementing class to define its own implementation of a default method.
+
+==========================================================================================================================================
+
+
+MULTIPLE INHERITANCE ISSUES:-
+
+Java does not support multiple inheritance of classes. Now that interfaces can include default methods, still multiple inheritance is not possible.
+The main reason being, classes can maintain state information which interfaces cannot.
+
+If a class implements two interfaces and each of these interfaces provides default methods then some behavior is inherited from both.
+Thus, default methods do support multiple inheritance to some extent. IN SUCH A SITUATION, A NAME CONFLICT WILL OCCUR.
+
+Let a class MyClass implement two interfaces Alpha and Beta, both of which provide a method called reset() for which both declare a default implementation.
+We might get confused as to which version of reset() will the class MyClass use.
+Also, if Beta extends Alpha, which version of the default method will be used?
+Or, if MyClass provides its own implementation of the method, then which one will get implemented?
+To handle these and other similar situations, java provides a set of rules that resolves such conflicts.
+
+First, in all cases, a class implementation takes priority over an interface default implementation.
+Second, in cases in which a class implements two interfaces that both have the same default method, but the class does not override that method, then an error will result.
+In cases in which one interface inherits another, with both defining a common default method, the inheriting interface's version of the method takes precedence.
+
+It is possible to explicitly refer to a default implementation in an inherited interface by using a new form of super.
+	InterfaceName.super.methodName()
+	
+===============================================================================================================================================================
+
+With JDK8, we now also have the ability to define one or more static methods.
+Like static methods in a class, a static method defined by an interface can be called independently of any object.
+Thus, no implementation of the interface is necessary, and no instance of the interface is required, in order to call a static method. Instead, a static method is called by specifying the interface name, followed by a period, followed by the method name.
+	InterfaceName.staticMethodName
+	
+Static interface methods are not inherited by either an implementing class or subinterface.
+
+============================================================================================================================================================
+ 
+ 
