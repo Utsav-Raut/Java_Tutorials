@@ -10,7 +10,11 @@ public class LambdaDemo {
 		
 		MyNumber myNum;				// Declare an interface reference
 		
-//		Here the lambda expression is simply a constant expression.
+//		When a lambda expression occurs in a target type context, an instance of a class is automatically created that implements the functional interface
+//		with the lambda expression defining the behavior of the abstract method declared by the functional interface.
+//		When that method is called through the target, the lambda expression is executed. Thus a lambda expression gives us a way to transform a code segment into an object.
+
+//		Here the lambda expression is simply a constant expression. The lambda expression becomes implementation of for the getValue() method.
 //		When it is assigned to myNum, a class instance is constructed in which the lambda expression implements the getValue() method in MyNumber.
 		myNum = () -> 123.45;
 		
