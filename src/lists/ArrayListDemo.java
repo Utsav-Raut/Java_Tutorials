@@ -31,7 +31,11 @@ public class ArrayListDemo {
 		System.out.println("Size after deletions: " + al.size());
 		System.out.println("Contents after deletion: " + al);
 		
+		System.out.println(al.get(5));
 		
+		List<String> al2 = new ArrayList<String>();
+		al2.addAll(al);
+		System.out.println(al2);
 		
 	}
 
