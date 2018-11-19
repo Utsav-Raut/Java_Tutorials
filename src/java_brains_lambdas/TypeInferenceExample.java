@@ -1,0 +1,22 @@
+package java_brains_lambdas;
+
+public class TypeInferenceExample {
+
+	public static void main(String[] args) {
+		
+		StringLengthLambda myLambda = s -> s.length();
+		System.out.println(myLambda.getLength("Hello Lambda"));
+		
+//		OR we can do as below:
+		
+		printLambda(s -> s.length());
+
+	}
+
+	public static void printLambda(StringLengthLambda l) {
+		System.out.println(l.getLength("Hello Lambda"));
+	}
+	interface StringLengthLambda{
+		int getLength(String s);
+	}
+}

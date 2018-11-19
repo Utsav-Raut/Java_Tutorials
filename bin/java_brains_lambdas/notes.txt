@@ -1,0 +1,38 @@
+if we want to write a function which takes in a number and returns it's double value.
+
+This is how we usually write:
+public int returnDouble(int a){
+	return a * 2 ;
+}
+
+Now converting this to a lambda expression:
+doubleNumberFunction = public int returnDouble(int a){
+	return a * 2;
+}
+
+doubleNumberFunction = int returnDouble(int a){
+	return a *2;
+}
+
+doubleNumberFunction = int (int a){
+	return a *2;
+}
+
+doubleNumberFunction = (int a) -> {
+	return a*2;
+}
+
+doubleNumberFunction = (int a) -> return a*2;
+
+doubleNumberFunction = (int a) -> a*2;
+
+
+Another example:
+addFunction = (int a, int b) -> a + b;
+
+Another example:
+safeDivideFunction = (int a, int b) -> {
+	if(b==0) return 0;
+	return a/b;
+};
+
