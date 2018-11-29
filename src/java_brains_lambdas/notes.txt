@@ -36,3 +36,19 @@ safeDivideFunction = (int a, int b) -> {
 	return a/b;
 };
 
+======================================================================
+
+Starting from Java 8, an interface may contain method with implementations.
+Functional interfaces are those which can have any number of methods with 
+implementations but only one abstract method.
+Functional interfaces can have only one abstract method and anything more than
+that will throw an error.
+
+To enforce that no one else if modifying a functional interface, we use:
+@FunctionalInterface
+
+
+======================================================================
+
+Exercise:
+Create a custom class Person and we create a list of the Person objects.
